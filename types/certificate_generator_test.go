@@ -5,8 +5,9 @@ import (
 
 	"crypto/x509"
 	"encoding/pem"
-	"github.com/cloudfoundry/config-server/types/typesfakes"
 	"time"
+
+	"github.com/cloudfoundry/config-server/types/typesfakes"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -133,7 +134,7 @@ sHx2rlaLkmSreYJsmVaiSp0E9lhdympuDF+WKRolkQ==
 						Expect(certificate.ExtKeyUsage).To(BeEmpty())
 					})
 
-					It("sets Issuer, Country & Org", func() {
+					It("sets Issuer, Country & default Org", func() {
 						Expect(certificate.Issuer.Country).To(Equal([]string{"USA"}))
 						Expect(certificate.Issuer.Organization).To(Equal([]string{"Cloud Foundry"}))
 						Expect(certificate.Issuer.CommonName).To(Equal(""))
